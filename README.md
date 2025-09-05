@@ -1,89 +1,32 @@
-# Explorando evolução de código
+# Análise de Evolução de Código - Spring Boot
 
-Neste exercício, iremos explorar a evolução de código em sistemas reais.
+Este repositório contém a análise da evolução do código do projeto Spring Boot, realizada como parte do exercício da disciplina. A análise foi feita com base em um relatório gerado pela ferramenta GitEvo.
 
-Iremos utilizar a ferramenta [GitEvo](https://github.com/andrehora/gitevo).
-Essa ferramenta analisa a evolução de código em repositórios Git nas linguagens Python, JavaScript, TypeScript e Java, e gera relatórios `HTML` como [este](https://andrehora.github.io/gitevo-examples/python/pandas.html).
+---
 
-Mais exemplos de relatórios podem ser podem ser encontrados em https://github.com/andrehora/gitevo-examples.
+**Repositório selecionado:** `https://github.com/spring-projects/spring-boot`
 
-# Passo 1: Selecionar repositório a ser analisado
+**Gráfico selecionado:** Evolução de Declarações de Tipos: Classes vs. Records
 
-Selecione um repositório relevante na linguagem de sua preferência (Python, JavaScript, TypeScript ou Java).
-Você pode encontrar projetos interessantes nos links abaixo:
+A análise foca na evolução comparativa entre o número de declarações de `class` e a introdução e crescimento das declarações de `record`.
 
-- Python: https://github.com/topics/python?l=python
-- JavaScript: https://github.com/topics/javascript?l=javascript
-- TypeScript: https://github.com/topics/typescript?l=typescript
-- Java: https://github.com/topics/java?l=java
+Os dados abaixo foram extraídos do relatório de evolução.
 
-# Passo 2: Instalar e rodar a ferramenta GitEvo
+![alt text](image.png)
 
-> [!NOTE]
-> Antes de instalar a ferramenta, é recomendado criar e ativar um [ambiente virtual Python](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments).
+**Explicação:**
 
-Instale a ferramenta [GitEvo](https://github.com/andrehora/gitevo) com o comando:
+A análise da evolução das declarações de classes e a introdução de records no projeto Spring Boot revela uma adaptação clara e estratégica às novas funcionalidades da linguagem Java.
 
-```
-$ pip install gitevo
-```
+1.  **Crescimento Contínuo das Classes (2020-2025):**
+    [cite_start]Observa-se um crescimento robusto e constante no número de declarações de classes, passando de 7.714 em 2020 para 11.641 em 2025. Este crescimento é esperado em um projeto ativo e em expansão como o Spring Boot, refletindo a adição de novas funcionalidades, módulos e melhorias ao longo dos anos. A classe continua sendo a estrutura fundamental para a maior parte da lógica de negócio, serviços, controladores e componentes do framework.
 
-Execute a ferramenta no repositório selecionado utilizando o comando abaixo (ajuste conforme a linguagem do repositório).
-Substitua `<git_url>` pela URL do repositório que será analisado:
+2.  **O Ponto de Inflexão: A Adoção de Records (2024):**
+    [cite_start]O dado mais interessante é a ausência de `record_declaration` até 2023, seguida por sua súbita aparição em 2024 com 62 declarações, crescendo para 85 no ano seguinte. Isso marca um ponto de inflexão claro e deliberado na estratégia de desenvolvimento do projeto. Os `Records` foram introduzidos como uma funcionalidade padrão no Java 16 (lançado em 2021) e servem como uma forma concisa de criar classes que são "transportadoras de dados" imutáveis (immutable data carriers).
 
-```shell
-# Python
-$ gitevo -r python <git_url>
+3.  **Implicações e Boas Práticas:**
+    * **Modernização do Código:** A adoção de `Records` demonstra o compromisso da equipe do Spring Boot em modernizar a base de código. Em vez de escrever classes verbosas com construtores, `getters`, `equals()`, `hashCode()` e `toString()` (o chamado "boilerplate code"), os desenvolvedores agora podem usar `Records` para simplificar drasticamente a definição de DTOs (Data Transfer Objects), objetos de configuração e outras estruturas de dados simples.
+    * **Melhora na Qualidade e Legibilidade:** O uso de `Records` está alinhado com boas práticas de programação. Ele promove a imutabilidade, o que torna o código mais seguro em ambientes concorrentes e mais fácil de raciocinar. A sintaxe declarativa e concisa melhora a legibilidade e reduz a chance de erros que poderiam ocorrer na implementação manual dos métodos padrão.
+    * [cite_start]**Adoção Gradual e Estratégica:** O crescimento de 62 para 85 `Records` em apenas um ano sugere que a nova funcionalidade foi bem recebida e está sendo ativamente utilizada em novos desenvolvimentos ou na refatoração de código existente[cite: 1]. A equipe não substituiu todas as classes possíveis por `Records` de uma vez, mas sim iniciou um processo de adoção onde faz mais sentido, o que é uma abordagem prudente em um projeto de grande escala.
 
-# JavaScript
-$ gitevo -r javascript <git_url>
-
-# TypeScript
-$ gitevo -r typescript <git_url>
-
-# Java
-$ gitevo -r java <git_url>
-```
-
-Por exemplo, para analisar o projeto Flask escrito em Python:
-
-```
-$ gitevo -r python https://github.com/pallets/flask
-```
-
-> [!NOTE]
-> Essa etapa pode demorar alguns minutos pois o projeto será clonado e analisado localmente.
-
-# Passo 3: Explorar o relatório de evolução de código
-
-Após executar a ferramenta [GitEvo](https://github.com/andrehora/gitevo), é gerado um relatório `HTML` contendo diversos gráficos sobre a evolução do código.
-
-Abra o relatório `HTML` e observe com atenção os gráficos.
-
-# Passo 4: Explicar um gráfico de evolução de código
-
-Selecione um dos gráficos de evolução e explique-o com suas palavras.
-Por exemplo, você pode:
-
-- Detalhar a evolução ao longo do tempo
-- Detalhar se as curvas estão de acordo com boas práticas
-- Explicar grandes alterações nas curvas
-- Explorar a documentação do repositório em busca de explicações para grandes alterações
-- etc.
-
-Seja criativo!
-
-# Instruções para o exercício
-
-1. Crie um `fork` deste repositório (mais informações sobre forks [aqui](https://docs.github.com/pt/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)).
-2. Adicione o relatório `HTML` no seu fork.
-3. No Moodle, submeta apenas a URL do seu `fork`.
-
-Responda às questões abaixo diretamente neste arquivo `README.md` do seu fork:
-
-1. Repositório selecionado: <URL_DO_REPOSITORIO_SELECIONADO_AQUI>
-2. Gráfico selecionado: <IMAGEM_DO_GRAFICO_SELECIONADO_AQUI>
-3. Explicação: <EXPLICACAO_AQUI>
-
-
-
+Em resumo, a evolução destas métricas ilustra como um projeto maduro como o Spring Boot não apenas cresce em tamanho, mas também evolui em qualidade, adotando novas funcionalidades da linguagem para escrever um código mais limpo, seguro e moderno.
