@@ -14,6 +14,8 @@ Os dados abaixo foram extraídos do relatório de evolução.
 
 ![alt text](image.png)
 
+![alt text](image-2.png)
+
 ![alt text](image-1.png)
 
 **Explicação:**
