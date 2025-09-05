@@ -14,6 +14,8 @@ Os dados abaixo foram extraídos do relatório de evolução.
 
 ![alt text](image.png)
 
+![alt text](image-1.png)
+
 **Explicação:**
 
 A análise da evolução das declarações de classes e a introdução de records no projeto Spring Boot revela uma adaptação clara e estratégica às novas funcionalidades da linguagem Java.
